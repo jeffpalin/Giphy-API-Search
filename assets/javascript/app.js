@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
     //Initial array of animals
     var animals = ["lion", "giraffe", "elephant", "hyena"];
 
@@ -23,7 +22,6 @@ $(document).ready(function() {
 
             var results = response.data;
 
-
             for (var i = 0; i < results.length; i++) {
 
                 // Make a div with jQuery and store it in a variable named animalDiv.
@@ -34,7 +32,6 @@ $(document).ready(function() {
 
                 // Append the animalImage variable to the animalDiv variable.
                 // Prepend the animalDiv variable to the element with an id of gifs-appear-here.
-
                 var animalDiv = $("<div class='animalDiv'>");
                 var rating = results[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
@@ -44,37 +41,35 @@ $(document).ready(function() {
                 animalImage.attr("data-animate", results[i].images.fixed_height.url);
                 animalImage.attr("data-state", "still");
                 animalImage.attr("class", "gif");
-
                 // Append the p variable to the animalDiv variable.
                 animalDiv.append(p);
                 animalDiv.append(animalImage);
                 $("#gifs-appear-here").prepend(animalDiv);
             }
 
+            $(".gif").on("click", function() {
+
+                // variable named state to store the image's data-state
+                var state = $(this).attr("data-state");
+                //Check if the variable state is equal to 'still',
+                // then update the src attribute of this image to it's data-animate value,
+                // and update the data-state attribute to 'animate'.
+                if (state === "still") {
+                    $(this).attr("src", $(this).attr("data-animate"));
+                    $(this).attr("data-state", "animate");
+                    // If state is equal to 'animate', then update the src attribute of this
+                    // image to it's data-still value and update the data-state attribute to 'still'
+                } else {
+                    $(this).attr("src", $(this).attr("data-still"));
+                    $(this).attr("data-state", "still");
+                }
+            });
         });
     };
-    $(".gif").on("click", function() {
-	        // variable named state to store the image's data-state
-	        var state = $(this).attr("data-state");
-	        //Check if the variable state is equal to 'still',
-	        // then update the src attribute of this image to it's data-animate value,
-	        // and update the data-state attribute to 'animate'.
-	        if (state === "still") {
-	            $(this).attr("src", $(this).attr("data-animate"));
-	            $(this).attr("data-state", "animate");
-	        // If state is equal to 'animate', then update the src attribute of this
-	        // image to it's data-still value and update the data-state attribute to 'still'
-	        } else {
-	            $(this).attr("src", $(this).attr("data-still"));
-	            $(this).attr("data-state", "still");
-	        }
-    });
 
     function renderButtons() {
-
         // Deleting the animal buttons prior to adding new animal buttons
         $("#buttons-view").empty();
-
         // Looping through the array of animals
         for (var i = 0; i < animals.length; i++) {
             // Dynamicaly generating buttons for each animal in the array.
@@ -89,6 +84,7 @@ $(document).ready(function() {
             $("#buttons-view").append(a);
         }
     }
+
     $("#add-animal").on("click", function(event) {
         // event.preventDefault() prevents the form from trying to submit itself.
         // User can hit enter instead of clicking the button if they want
@@ -103,11 +99,7 @@ $(document).ready(function() {
     });
 
     // Adding a click event listener to all elements with a class of "animal"
-
     $(document).on("click", ".animal", displayAnimalInfo);
-
     // Calling the renderButtons to display the initial list of animals
     renderButtons();
-
-
 });

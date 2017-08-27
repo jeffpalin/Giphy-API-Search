@@ -1,21 +1,27 @@
+body {
+      font-family: arial;
+}
+
 button, div, form, input, p {
       margin: 10px;
-      font-family: arial;
-    }
+}
+
+button, #add-animal {
+	background-color: #009092;
+	color: white;
+	border-radius: 5px;
+	padding: 5px 15px;
+}
 
 #header {
 	margin: 10px;
-	float: 20px;
 }
+
 #animal-form {
-	margin: 5px 20px;
+	margin: 5px 40px 5px 10px;
 	float: right;
 }
 
 img {
 	margin-bottom: 20px;
-}
-
-#animalDiv {
-	width: auto;
 }
