@@ -1,4 +1,4 @@
-button, div, form, input {
+button, div, form, input, p {
       margin: 10px;
       font-family: arial;
     }
@@ -10,4 +10,12 @@ button, div, form, input {
 #animal-form {
 	margin: 5px 20px;
 	float: right;
+}
+
+img {
+	margin-bottom: 20px;
+}
+
+#animalDiv {
+	width: auto;
 }
