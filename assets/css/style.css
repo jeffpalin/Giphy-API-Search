@@ -1,0 +1,13 @@
+button, div, form, input {
+      margin: 10px;
+      font-family: arial;
+    }
+
+#header {
+	margin: 20px;
+	float: 20px;
+}
+#animal-form {
+	margin: 5px 20px;
+	float: right;
+}
