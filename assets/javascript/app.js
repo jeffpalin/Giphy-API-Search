@@ -6,7 +6,7 @@ $(document).ready(function() {
     // GET request to Giphy for the animal button of choice
     function displayAnimalInfo() {
         var animal = $(this).attr("data-name");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
             animal + "&api_key=f7d0cd7d081f4a3c96e6bfa7383528c8&limit=10";
 
         $.ajax({
@@ -99,6 +99,8 @@ $(document).ready(function() {
 
         // The animal from the textbox is then added to our array
         animals.push(animal);
+
+        $("#animal-input").val("");
 
         // calling renderButtons to process the animal array
         renderButtons();
