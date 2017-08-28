@@ -16,6 +16,7 @@ button, #add-animal {
 
 #header {
 	margin: 10px;
+	float: left;
 }
 
 #animal-form {
@@ -24,6 +25,10 @@ button, #add-animal {
 }
 
 img {
-	margin-bottom: 20px;
+	margin: 0px 10px 10px;
 }
 
+.animalDiv {
+	float: left;
+	clear: right;
+}
