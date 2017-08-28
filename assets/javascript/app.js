@@ -12,13 +12,18 @@ $(document).ready(function() {
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).done(function(response) {
+        })
+
+        .done(function(response) {
 
             // log the animal array
             console.log(response);
 
             // The image information is inside of the data key, make a variable 
             // named results and set it equal to response.data
+            
+            //This clears the existing gifs in the HTML Div
+            $("#gifs-appear-here").empty();
 
             var results = response.data;
 
@@ -94,6 +99,7 @@ $(document).ready(function() {
 
         // The animal from the textbox is then added to our array
         animals.push(animal);
+
         // calling renderButtons to process the animal array
         renderButtons();
     });
